@@ -1,0 +1,14 @@
+{
+  "name": "ai-workdesk-local",
+  "version": "0.2.0",
+  "description": "A Windows-based personal AI operating system featuring Main Brain orchestration, Lifetime PMs, Persistent Workers, Dual QA Gates, and Virtual Office visualization.",
+  "scripts": {
+    "start": ".\\venv\\Scripts\\python.exe main.py",
+    "test": ".\\venv\\Scripts\\python.exe test_pipeline.py",
+    "legacy:node": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "version": 1,
+  "character": "Emilia",
+  "identity": [
+    "silver hair",
+    "violet eyes",
+    "pointed ears",
+    "braided hair",
+    "ice magic"
+  ],
+  "characterLayer": {
+    "file": "base.png",
+    "columns": 2,
+    "rows": 1,
+    "forms": {
+      "chibi": 0,
+      "full": 1
+    },
+    "pose": "standing",
+    "baseGarment": "opaque lilac dance garment",
+    "baseGarmentBaked": true
+  },
+  "animationLayer": {
+    "file": "sprites.png",
+    "columns": 4,
+    "rows": 4,
+    "outfit": "default",
+    "frames": [
+      "idle",
+      "blink",
+      "greet",
+      "surprise",
+      "walk-1",
+      "walk-2",
+      "walk-3",
+      "walk-4",
+      "tea",
+      "magic",
+      "phone",
+      "sleep",
+      "bongo-idle",
+      "bongo-left",
+      "bongo-right",
+      "bongo-both"
+    ]
+  },
+  "clothingLayers": {
+    "default": {
+      "file": "clothing-default.png",
+      "columns": 3,
+      "rows": 4,
+      "forms": [
+        "chibi",
+        "full"
+      ],
+      "slotOrder": [
+        "top",
+        "bottom",
+        "socks",
+        "shoes",
+        "headwear",
+        "brooch"
+      ],
+      "poses": [
+        "standing"
+      ],
+      "referenceDimensions": [
+        1086,
+        1448
+      ],
+      "crops": {
+        "chibi": {
+          "top": [
+            40,
+            60,
+            315,
+            265
+          ],
+          "bottom": [
+            404,
+            129,
+            273,
+            148
+          ],
+          "socks": [
+            805,
+            98,
+            170,
+            230
+          ],
+          "shoes": [
+            126,
+            628,
+            148,
+            75
+          ],
+          "headwear": [
+            440,
+            407,
+            86,
+            284
+          ]
+        },
+        "full": {
+          "top": [
+            23,
+            745,
+            349,
+            335
+          ],
+          "bottom": [
+            399,
+            862,
+            300,
+            168
+          ],
+          "socks": [
+            801,
+            752,
+            178,
+            335
+          ],
+          "shoes": [
+            122,
+            1360,
+            158,
+            82
+          ],
+          "headwear": [
+            442,
+            1090,
+            90,
+            334
+          ]
+        }
+      }
+    },
+    "variants": {
+      "file": "clothing-variants.png",
+      "rows": 5,
+      "rowOrder": [
+        "casual",
+        "ice_queen",
+        "kimono",
+        "maid",
+        "swimsuit"
+      ],
+      "columnOrder": [
+        "top",
+        "bottom",
+        "socks",
+        "shoes",
+        "headwear"
+      ],
+      "forms": [
+        "chibi",
+        "full"
+      ],
+      "poses": [
+        "standing"
+      ],
+      "fitting": "independent slot anchors; per-form scaling",
+      "referenceDimensions": [
+        1254,
+        1254
+      ],
+      "crops": {
+        "casual": {
+          "top": [
+            8,
+            30,
+            288,
+            235
+          ],
+          "bottom": [
+            296,
+            48,
+            244,
+            197
+          ],
+          "shoes": [
+            766,
+            62,
+            212,
+            181
+          ],
+          "headwear": [
+            1050,
+            61,
+            165,
+            200
+          ]
+        },
+        "ice_queen": {
+          "top": [
+            10,
+            264,
+            278,
+            246
+          ],
+          "bottom": [
+            273,
+            266,
+            295,
+            242
+          ],
+          "shoes": [
+            777,
+            297,
+            195,
+            201
+          ],
+          "headwear": [
+            1035,
+            286,
+            172,
+            226
+          ]
+        },
+        "kimono": {
+          "top": [
+            4,
+            507,
+            287,
+            255
+          ],
+          "bottom": [
+            320,
+            502,
+            194,
+            263
+          ],
+          "socks": [
+            561,
+            577,
+            149,
+            156
+          ],
+          "shoes": [
+            768,
+            581,
+            212,
+            150
+          ],
+          "headwear": [
+            1074,
+            530,
+            133,
+            234
+          ]
+        },
+        "maid": {
+          "top": [
+            3,
+            768,
+            290,
+            245
+          ],
+          "bottom": [
+            280,
+            774,
+            273,
+            234
+          ],
+          "socks": [
+            567,
+            766,
+            147,
+            253
+          ],
+          "shoes": [
+            774,
+            807,
+            194,
+            196
+          ],
+          "headwear": [
+            1000,
+            795,
+            249,
+            200
+          ]
+        },
+        "swimsuit": {
+          "top": [
+            47,
+            1018,
+            199,
+            224
+          ],
+          "bottom": [
+            294,
+            1080,
+            236,
+            145
+          ],
+          "shoes": [
+            771,
+            1040,
+            206,
+            185
+          ],
+          "headwear": [
+            973,
+            1045,
+            280,
+            158
+          ]
+        }
+      }
+    }
+  },
+  "categories": [
+    "base garments",
+    "tops",
+    "bottoms",
+    "socks",
+    "shoes",
+    "headwear",
+    "glasses",
+    "earrings",
+    "brooches"
+  ],
+  "emptyCategories": [
+    "glasses",
+    "earrings"
+  ],
+  "sourceInventory": [
+    {
+      "id": "default",
+      "sources": [
+        "skins/default.png",
+        "skins_full/default.png"
+      ],
+      "components": [
+        "corset and sleeves",
+        "tiered skirt",
+        "white stockings",
+        "purple shoes",
+        "white rose and ribbon",
+        "green brooch"
+      ]
+    },
+    {
+      "id": "casual",
+      "sources": [
+        "skins/casual.png",
+        "skins_full/casual.png"
+      ],
+      "components": [
+        "tee and blue jacket",
+        "denim skirt",
+        "sneakers",
+        "purple hairband"
+      ]
+    },
+    {
+      "id": "ice_queen",
+      "sources": [
+        "skins/ice_queen.png",
+        "skins_full/ice_queen.png"
+      ],
+      "components": [
+        "ice bodice and gloves",
+        "snowflake skirt and train",
+        "ice heels",
+        "ice rose"
+      ]
+    },
+    {
+      "id": "kimono",
+      "sources": [
+        "skins/kimono.png",
+        "skins_full/kimono.png"
+      ],
+      "components": [
+        "wrap top sleeves and obi",
+        "floral wrap skirt",
+        "tabi socks",
+        "wooden sandals",
+        "floral hair ornament"
+      ]
+    },
+    {
+      "id": "maid",
+      "sources": [
+        "skins/maid.png",
+        "skins_full/maid.png"
+      ],
+      "components": [
+        "blouse and apron bodice",
+        "ruffled apron skirt",
+        "dark stockings",
+        "Mary Jane shoes",
+        "ruffled headband"
+      ]
+    },
+    {
+      "id": "swimsuit",
+      "sources": [
+        "skins/swimsuit.png",
+        "skins_full/swimsuit.png"
+      ],
+      "components": [
+        "swim top",
+        "swim bottom",
+        "sandals",
+        "sunhat"
+      ],
+      "wearable": [
+        "sandals",
+        "sunhat"
+      ],
+      "note": "Swim pieces are catalogued but await a compatible base garment."
+    }
+  ],
+  "provenance": "Native image-tool reconstructions from the supplied references and existing outfit assets. Original source assets are unchanged. Existing horizontal-band extractions were rejected because they contain hair fragments and damaged fabric.",
+  "compatibility": "Custom outfits use the standing character pose. Bongo and expressive sprite animations use the original outfit. Clothing is rendered from independent atlas fragments; character identity is never swapped with an outfit.",
+  "slotAnchors": {
+    "full": {
+      "top": [
+        0.245,
+        0.253,
+        0.46,
+        0.44
+      ],
+      "bottom": [
+        0.337,
+        0.478,
+        0.28,
+        0.17
+      ],
+      "socks": [
+        0.375,
+        0.625,
+        0.23,
+        0.35
+      ],
+      "shoes": [
+        0.398,
+        0.918,
+        0.19,
+        0.066
+      ],
+      "headwear": [
+        0.344,
+        0.074,
+        0.07,
+        0.25
+      ]
+    },
+    "chibi": {
+      "top": [
+        0.29,
+        0.437,
+        0.44,
+        0.345
+      ],
+      "bottom": [
+        0.386,
+        0.63,
+        0.275,
+        0.145
+      ],
+      "socks": [
+        0.443,
+        0.77,
+        0.145,
+        0.205
+      ],
+      "shoes": [
+        0.445,
+        0.937,
+        0.145,
+        0.045
+      ],
+      "headwear": [
+        0.3,
+        0.21,
+        0.1,
+        0.3
+      ]
+    }
+  }
+}

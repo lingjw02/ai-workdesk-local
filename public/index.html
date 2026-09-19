@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EMILIA LAB · Personal AI studio</title>
+<link rel="stylesheet" href="css/style.css?v=0.42.0" />
+<link rel="stylesheet" href="css/studio.css?v=0.41.0" />
+<link rel="stylesheet" href="css/dashboard.css?v=0.41.0" />
+<link rel="stylesheet" href="css/pet.css?v=1" /><link rel="stylesheet" href="css/media-room.css?v=1" /></head>
+<body>
+<div id="bootSplash" role="status" aria-label="EMILIA LAB is starting">
+  <div class="boot-inner">
+    <svg class="boot-mark" viewBox="0 0 120 120" aria-hidden="true">
+      <circle class="boot-orbit" cx="60" cy="60" r="46" fill="none" stroke-width="2" pathLength="1"/>
+      <line class="boot-link l1" x1="60" y1="60" x2="60" y2="14"/>
+      <line class="boot-link l2" x1="60" y1="60" x2="102" y2="78"/>
+      <line class="boot-link l3" x1="60" y1="60" x2="18" y2="78"/>
+      <circle class="boot-node n1" cx="60" cy="14" r="4"/>
+      <circle class="boot-node n2" cx="102" cy="78" r="4"/>
+      <circle class="boot-node n3" cx="18" cy="78" r="4"/>
+      <circle class="boot-core" cx="60" cy="60" r="9"/>
+    </svg>
+    <div class="boot-word">
+      <div class="boot-brand">EMILIA <span>LAB</span></div>
+      <div class="boot-sub">AI WORKDESK OS</div>
+    </div>
+    <div class="boot-status">
+      <div class="boot-line" style="--i:0"><span class="boot-dot"></span><span>MAIN BRAIN ONLINE</span></div>
+      <div class="boot-line" style="--i:1"><span class="boot-dot"></span><span>WORKERS SYNCED</span></div>
+      <div class="boot-line" style="--i:2"><span class="boot-dot"></span><span>MEMORY LOADED</span></div>
+    </div>
+    <div class="boot-progress"><i></i></div>
+  </div>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="yuimiTop">
+  <button id="mobileMenu" class="icon-btn" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><svg class="ico-svg" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  <div class="studio-breadcrumb">Personal workspace <span>/</span> <strong id="studioPageTitle">Home</strong></div>
+  <button class="studio-search" id="commandOpen"><svg class="ico-svg" aria-hidden="true"><use href="#i-search"/></svg><span>Go to anything</span><kbd>Ctrl K</kbd></button>
+  <span class="studio-connection" id="studioConnection" role="status"><span class="connection-dot"></span><span>Connecting</span></span>
+</header>
+<div id="shell">
+<aside id="sidebar" aria-label="Main navigation">
+  <div class="side-head"><div class="side-brand"><svg class="brand-mark" aria-hidden="true"><use href="#i-snow"/></svg><div class="side-title">EMILIA <span>LAB</span><small>Personal AI studio</small></div></div><button id="collapseBtn" aria-label="Collapse navigation" title="Collapse navigation">«</button></div>
+  <button id="newProjectBtn" class="side-new"><svg class="ico-svg" aria-hidden="true"><use href="#i-plus"/></svg><span class="label">New project</span></button>
+  <div class="side-scroll">
+  <div class="side-section"><button class="side-item active" id="navDashBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-home"/></svg><span class="label">Home</span></button><button class="side-item " id="newChatItem" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-message"/></svg><span class="label">New chat</span></button><button class="side-item " id="navProjectsBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-folder"/></svg><span class="label">Projects</span></button><button class="side-item " id="navTasksBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-check"/></svg><span class="label">Tasks</span></button><div id="projectList" class="project-shortcuts"></div></div><div class="side-section"><div class="side-section-title label">Recent chats</div><div id="chatList"></div></div><div class="side-section"><div class="side-section-title label">Your team</div><button class="side-item " id="navWorkersBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-users"/></svg><span class="label">Workers</span></button><button class="side-item " id="navPmsBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-compass"/></svg><span class="label">Project managers</span></button><button class="side-item " id="navKnowledgeBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-brain"/></svg><span class="label">Team memory</span></button></div><div class="side-section"><div class="side-section-title label">Workspace</div><button class="side-item " id="navSuiteBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-folder"/></svg><span class="label">Office suite</span></button><button class="side-item " id="navCodeBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-monitor"/></svg><span class="label">Code studio</span></button><button class="side-item " id="navMediaBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-video"/></svg><span class="label">Media</span></button><button class="side-item " id="navVaultBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-file"/></svg><span class="label">Vault notes</span></button></div><details class="side-section side-utilities"><summary class="side-section-title">Utilities</summary><button class="side-item " id="navTimerBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-clock"/></svg><span class="label">Timer & alarms</span></button><button class="side-item " id="navCalcBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-calc"/></svg><span class="label">Calculator</span></button><button class="side-item " id="navRemoteBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-monitor"/></svg><span class="label">Remote devices</span></button></details><div class="side-section side-system"><button class="side-item " id="navAuditBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-scroll"/></svg><span class="label">Activity</span></button><button class="side-item " id="navSettingsBtn" type="button"><svg class="ico-svg" aria-hidden="true"><use href="#i-settings"/></svg><span class="label">Settings</span></button></div></div><div class="side-foot"><img src="assets/emilia_portrait.jpg" alt="" /><div class="label"><strong>Emilia Lab</strong><span>Your space to make things.</span></div></div>
+</aside>
+<button class="sidebar-backdrop" id="sidebarBackdrop" aria-label="Close navigation" hidden></button>
+  <!-- ================= main content ================= -->
+  <main id="main" tabindex="-1">
+
+    <!-- ---- 1. Chat View (Main Brain + Ambiguity Gate) ---- -->
+    <section class="view" id="view-chat">
+      <div class="studio-chat-heading"><div><h1>Let's make progress.</h1><p>Your team and conversation, together.</p></div><div class="studio-mobile-tabs" aria-label="Workspace panel"><button class="active" data-studio-pane="chat" aria-pressed="true">Conversation</button><button data-studio-pane="office" aria-pressed="false">Team & files</button></div></div>
+      <div id="chatMain">
+      <!-- Left: office workflow view (concept sketch) -->
+      <div id="chatWorkflow">
+        <div class="wf-title-row">
+          <div class="wf-title">Your team</div>
+          <div class="wf-mode">
+            <button class="wf-mode-btn active" id="wfModeOffice">Office</button>
+            <button class="wf-mode-btn" id="wfModeLocal">Local files</button>
+          </div>
+        </div>
+        <div id="wfOfficeView">
+          <div class="wf-manager">
+            <div class="wf-hex" id="wfMbHex">MB</div>
+            <div class="wf-manager-name">MAIN BRAIN</div>
+            <div class="wf-manager-status" id="wfMbStatus">idle</div>
+          </div>
+          <div class="wf-desks" id="wfDesks">
+            <div class="wf-desk"><div class="wf-desk-hex">+</div><div class="wf-desk-name">Add workers</div><div class="wf-desk-status">idle</div></div>
+          </div>
+          <div class="wf-footer" id="wfFooter">
+            <span id="wfFootWorkers">0 workers</span>
+            <span class="wf-live-dot"></span>
+            <span id="wfFootActive">0 active</span>
+          </div>
+        </div>
+        <div id="wfLocalView" class="hidden">
+          <div class="local-top">
+            <span class="local-drives">
+              <button class="btn-secondary btn-sm local-drive" data-path="C:/">C:\</button>
+              <button class="btn-secondary btn-sm local-drive" data-path="D:/">D:\</button>
+              <button class="btn-secondary btn-sm local-drive" data-path="E:/">E:\</button>
+            </span>
+            <input id="localPath" class="local-path" placeholder="Type a folder path, e.g. C:/Users/you/Documents" value="D:/02_Development_Tools" />
+            <button class="btn-primary" id="localGoBtn">Open Folder</button>
+            <button class="btn-secondary" id="localUpBtn">&#8593; Up</button>
+          </div>
+          <div id="localCrumbs" class="local-crumbs"></div>
+          <div id="localPanel" class="local-panel"><div class="placeholder">Enter a path or pick a drive to browse local folders &amp; files. Text, code, images, audio &amp; video can be previewed; binary files show metadata.</div></div>
+        </div>
+      </div>
+      <div class="split-resizer wf-resizer" data-key="wf" title="Drag to resize office view"></div>
+
+      <!-- Right: Main Brain / Project Manager tabs + chat UI -->
+      <div id="chatCenter">
+        <div class="chat-tabs">
+          <button class="chat-tab active" data-chat-tab="brain">Main Brain</button>
+          <button class="chat-tab" data-chat-tab="pm">Project manager</button>
+        </div>
+        <div id="chatBrainPane">
+      <div id="chatHeader">
+        <div id="chatTitle">New conversation</div>
+        <div class="header-badges">
+          
+          
+          <button id="chatSidebarToggle" class="badge badge-sb" title="Toggle this chat's session panel (tasks / office / approvals)">Session details</button>
+        </div>
+      </div>
+
+      <div id="clarificationBanner" class="clarification-banner" style="display:none;">
+        <div class="cb-header">
+          <span class="cb-badge">QA-1 Ambiguity Gate</span>
+          <span class="cb-title" id="clarificationQuestion">Clarification Required</span>
+        </div>
+        <div class="cb-explanation" id="clarificationExplanation"></div>
+        <div class="cb-options" id="clarificationOptions"></div>
+      </div>
+
+      <div id="chatLog">
+        <div class="chat-empty" id="chatEmptyState">
+          <h2>What are we working on?</h2>
+          <p>Ask a question, explore an idea, or give your team a goal. Your tasks and outputs stay together here.</p>
+        </div>
+      </div>
+
+      <div id="composerWrap">
+        <div id="composer">
+          <div class="chat-mode-switch" id="chatModeSwitch" title="Chat mode: casual chat vs full project workspace">
+            <button class="cm-btn active" data-chatmode="chat">Chat</button>
+            <button class="cm-btn" data-chatmode="project">Project work</button>
+          </div>
+          <div class="mode-pills">
+            <button class="pill active" data-mode="instant">Fast</button>
+            <button class="pill" data-mode="expert">Reasoning</button>
+            <button class="pill" data-mode="vision">Vision</button>
+          </div>
+          <div class="attach-list" id="attachList"></div>
+          <div class="input-box">
+            <textarea id="chatInput" rows="1" aria-label="Message Main Brain" placeholder="Describe your goal to the Main Brain..."></textarea>
+            <div class="input-toolbar">
+              <div class="toolbar-left">
+                <button class="tool-btn" id="searchToggle" title="Search the web for this goal">Web search</button>
+                <select class="tool-select" id="deepthinkSelect" aria-label="Reasoning effort">
+                  <option value="low">DeepThink: Low</option>
+                  <option value="normal" selected>DeepThink: Normal</option>
+                  <option value="long">DeepThink: High</option>
+                </select>
+              </div>
+              <div class="toolbar-right">
+                <button class="icon-btn" id="attachBtn" title="Attach image" aria-label="Attach image"><svg class="ico-svg" aria-hidden="true"><use href="#i-attach"/></svg></button>
+                <input type="file" id="fileInput" accept="image/*" multiple style="display:none;" />
+                <button id="sendBtn" title="Send">↑</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div id="chatPmPane" class="chat-pm-pane" style="display:none;"></div>
+      </div>
+    </div>
+
+      <!-- Right side: this chat's session panel (tasks / workers / approvals / result) -->
+      <div id="spResize" class="sp-resize" title="Drag to resize session panel"></div>
+      <aside id="sessionSidebar" class="ss-open" aria-label="Conversation details">
+        <div class="ss-header">
+          <span class="ss-title">Session details</span>
+          <button id="sessionToggle" title="Collapse / expand" aria-label="Collapse session details" aria-expanded="true">Collapse</button>
+        </div>
+        <div class="ss-tabs">
+          <button class="ss-tab active" data-ss-tab="tasks">Tasks</button>
+          <button class="ss-tab" data-ss-tab="workers">Team activity</button>
+          <button class="ss-tab" data-ss-tab="approvals">Approvals</button>
+          <button class="ss-tab" data-ss-tab="result">Outputs</button>
+          <button class="ss-tab" data-ss-tab="project">Project</button>
+        </div>
+        <div class="ss-content">
+          <div class="sp-tab-pane active" id="spPaneTasks">
+            <div class="sp-label">TASKS <span class="muted">(this conversation)</span></div>
+            <div class="sp-body placeholder">No tasks yet in this chat.</div>
+          </div>
+          <div class="sp-tab-pane" id="spPaneWorkers">
+            <div class="sp-label">OFFICE FLOOR <span class="muted">(this chat's hive)</span></div>
+            <div class="sp-body placeholder" id="officeFloorBody">Loading office…</div>
+          </div>
+          <div class="sp-tab-pane" id="spPaneApprovals">
+            <div class="sp-label">APPROVALS <span class="muted">(this conversation)</span></div>
+            <div class="sp-body placeholder">No pending approvals in this chat.</div>
+          </div>
+          <div class="sp-tab-pane" id="spPaneResult">
+            <div class="sp-label">RESULT VISUALIZE <span class="muted">(this conversation)</span></div>
+            <div class="sp-body placeholder">No results to visualize yet.</div>
+          </div>
+          <div class="sp-tab-pane" id="spPaneProject">
+            <div class="sp-label">PROJECT <span class="muted">(this chat + all projects)</span></div>
+            <div class="sp-body placeholder" id="spProjectBody">Projects linked to this chat will appear here.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ---- 2. Projects & PMs View ---- -->
+    <section class="view" id="view-projects">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Projects &amp; <span class="y-acc">Lifetime PMs</span></h2>
+        </div>
+        <div class="y-badges"><button class="btn-secondary" id="refreshProjectsBtn">↻ Refresh</button></div>
+      </div>
+      <div id="projectsContainer" class="projects-grid"></div>
+    </section>
+
+    <!-- ---- 3. Tasks & QA History View ---- -->
+    <section class="view" id="view-tasks">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Tasks &amp; QA <span class="y-cold">History</span></h2>
+        </div>
+        <div class="y-badges"><button class="btn-secondary" id="refreshTasksBtn">↻ Refresh</button></div>
+      </div>
+      <div id="tasksLayout">
+        <div id="tasksList" class="tasks-list"></div>
+        <div id="taskDetailPane" class="task-detail-pane">
+          <div class="placeholder">Select a task to inspect its state machine, QA-1/QA-2 history and audit timeline.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- 4. Worker Registry View ---- -->
+    <section class="view" id="view-workers">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Persistent AI <span class="y-acc">Employees</span></h2>
+        </div>
+        <div class="y-badges"><button class="btn-primary" id="openDesignWorkerBtn">+ Design New Worker</button></div>
+      </div>
+      <div class="muted" style="margin-bottom:10px;">Workers are persistent AI employees. Edit a profile to adjust skills, tools and permissions - their live workspace lives inside the chats that actually use them.</div>
+      <div id="workerRegistryGrid" class="worker-registry-grid"></div>
+      <div class="skill-market">
+        <div class="sm-header">
+          <h3>Skill Market</h3>
+          <span class="muted" id="smCount"></span>
+          <span class="muted sm-hint">Install a skill onto a worker - the SBR router can then route matching tasks to it automatically.</span>
+        </div>
+        <div id="skillMarketGrid" class="skill-market-grid"><div class="placeholder">Loading skills...</div></div>
+      </div>
+    </section>
+
+    <!-- ---- 11a. Worker Studio (per-worker live workspace) ---- -->
+    <section class="view" id="view-worker-studio">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Worker <span class="y-acc">Studio</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge violet">live desk</span> <div id="studioHeaderActions" style="display:contents;"></div></div>
+      </div>
+      <div id="workerStudioPanel"><div class="placeholder">Loading worker workspace...</div></div>
+    </section>
+
+    <!-- ---- 11b. Design New Worker (GitHub skill -> worker) ---- -->
+    <section class="view" id="view-worker-design">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Design New <span class="y-acc">Worker</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge violet">skill-based routing</span></div>
+      </div>
+      <div id="workerDesignPanel"></div>
+    </section>
+
+    <!-- ---- 5. Project Managers View ---- -->
+    <section class="view" id="view-pms">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Project <span class="y-acc">Managers</span></h2>
+        </div>
+        <div class="y-badges"><button class="btn-secondary" id="refreshPmsBtn">↻ Refresh</button></div>
+      </div>
+      <div id="pmsContainer" class="pms-grid"></div>
+    </section>
+
+    <!-- ---- 6. Knowledge & Memory View ---- -->
+    
+
+    <!-- ---- P10.1 Timer / Alarm / Stopwatch ---- -->
+    <section class="view" id="view-timer">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Timer &middot; Alarm &middot; <span class="y-cold">Stopwatch</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge violet">countdown &middot; alarm &middot; lap</span></div>
+      </div>
+      <div class="p10-tabs" id="timerTabs">
+        <button class="p10-tab active" data-t="timer">Timer</button>
+        <button class="p10-tab" data-t="alarm">Alarm</button>
+        <button class="p10-tab" data-t="stopwatch">Stopwatch</button>
+      </div>
+      <div id="timerPanel"></div>
+    </section>
+
+    <!-- ---- P10.2 Calculator ---- -->
+    <section class="view" id="view-calc">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Calculator <span class="y-acc">Convert</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge">glass &middot; key &middot; history</span></div>
+      </div>
+      <div id="calcPanel"></div>
+    </section>
+
+    <!-- ---- P11 Vault (Obsidian-style) ---- -->
+    <section class="view" id="view-vault">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Vault <span class="y-acc">Notes</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge violet">obsidian-style &middot; MB memory</span></div>
+      </div>
+      <div id="vaultPanel"></div>
+    </section>
+
+    <!-- ---- P10.4 Code Studio ---- -->
+    <section class="view" id="view-suite">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Office <span class="y-cold">Suite</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge">pdf studio</span> <button class="btn-secondary fs-btn" data-fs="view-suite" title="Fullscreen">⛴ Fullscreen</button></div>
+      </div>
+      <div class="suite-tabs">
+        <button class="suite-tab active" data-t="pdf">&#128213; PDF Studio</button>
+      </div>
+      <div class="suite-pane active" id="suite-pdf">
+        <div class="pdf-toolbar">
+          <input type="file" id="pdfUpload" accept="application/pdf" multiple class="ws-upload" />
+          <span class="muted">or click a file in the library to open &amp; edit it</span>
+          <span class="pdf-tools">
+            <button class="btn-primary" id="pdfSaveBtn">&#128190; Save Edits</button>
+            <button class="btn-secondary" id="pdfExportBtn">&#11015; Export PDF</button>
+            <button class="btn-secondary" id="pdfFullBtn" title="Fullscreen PDF viewer only">&#9904; Fullscreen</button>
+          </span>
+          <span class="muted" id="pdfStatus">No PDF loaded</span>
+        </div>
+        <div id="pdfLayout">
+          <div class="split-resizer" data-key="pdf"></div>
+          <div id="pdfFiles"></div>
+          <div id="pdfMain">
+            <div id="pdfPages" class="pdf-pages"><div class="placeholder">Pick a PDF from the library - pages render here. Click any text to edit it in place; Save Edits keeps your changes, Export PDF bakes them into a new file.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view active" id="view-dashboard">
+      <div id="dashRoot"></div>
+    </section>
+
+    
+
+    <!-- ---- P10.4 Code Studio (page kept for worker desks; nav entry removed) ---- -->
+    <section class="view" id="view-code">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Code <span class="y-cold">Studio</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge">workspace sandbox</span> <button class="btn-secondary fs-btn" data-fs="view-code" title="Fullscreen">⛴ Fullscreen</button></div>
+      </div>
+      <div id="codeLayout">
+        <div class="split-resizer" data-key="code"></div>
+        <div id="codeFiles"></div>
+        <div id="codeMain">
+          <div class="code-toolbar">
+            <input id="codeFilename" placeholder="code/hello.py" value="code/hello.py" />
+            <button class="btn-primary" id="codeSaveBtn">Save</button>
+            <button class="btn-primary" id="codeRunBtn">Run</button>
+          </div>
+          <div class="code-editor-wrap">
+            <pre id="codeHighlight" class="code-highlight" aria-hidden="true"></pre>
+            <textarea id="codeEditor" spellcheck="false" autocapitalize="off" autocorrect="off"></textarea>
+          </div>
+          <div id="codeOutput"><div class="placeholder">Run output appears here (timed sandbox, audited).</div></div>
+          <div id="codeStatus" class="editor-status">Ln 1 · Col 0 · UTF-8 · Python</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- P10.5 Documents ---- -->
+    
+
+    <!-- ---- P10.6 Sheets ---- -->
+    
+
+    <!-- ---- P10.7 Slides ---- -->
+    
+
+    <!-- ---- P10.8 PDF ---- -->
+    
+
+    <!-- ---- P10.9 Media ---- -->
+    <section class="view" id="view-media">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Media room</h2>
+          <p class="media-page-intro">Watch, listen, and look a little closer.</p>
+        </div>
+        <div class="y-badges"><button class="btn-secondary" id="mediaLibraryToggle" aria-controls="mediaLibrary" aria-expanded="true">Hide library</button><button class="btn-secondary fs-btn" data-fs="view-media" title="Fullscreen">Fullscreen</button></div>
+      </div>
+      <div id="mediaPlayer" class="media-player hidden">
+        <div class="mp-stage" id="mpStage"></div>
+        <div class="mp-controls">
+          <button id="mpPlay" class="mp-btn" title="Play / Pause">▶</button>
+          <button id="mpBack" class="mp-btn" title="Back 10s">↩10</button>
+          <button id="mpFwd" class="mp-btn" title="Forward 10s">10↪</button>
+          <span class="mp-time" id="mpTime">0:00 / 0:00</span>
+          <input type="range" id="mpSeek" min="0" max="1000" value="0" class="mp-seek" title="Seek" />
+          <span class="mp-vol-wrap"><span class="mp-vol-ico">🔊</span><input type="range" id="mpVol" min="0" max="100" value="80" class="mp-vol" title="Volume" /></span>
+          <select id="mpRate" class="mp-rate" title="Speed">
+            <option value="0.5">0.5×</option><option value="1" selected>1×</option>
+            <option value="1.5">1.5×</option><option value="2">2×</option>
+          </select>
+          <button id="mpFs" class="mp-btn" title="Fullscreen">⛶</button>
+          <button id="mpShare" class="mp-btn" title="Copy link">⇪</button>
+        </div>
+        <div class="mp-name" id="mpName"></div>
+      </div>
+      <div id="mediaPanel"></div>
+    </section>
+
+    <!-- ---- P10.10 Remote Device ---- -->
+    <section class="view" id="view-remote">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">Remote <span class="y-acc">Device</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge">device fleet</span> <button class="btn-secondary fs-btn" data-fs="view-remote" title="Fullscreen">⛴ Fullscreen</button></div>
+      </div>
+      <div id="remotePanel"></div>
+    </section>
+
+    <!-- ---- 7. Audit Log View ---- -->
+    <section class="view" id="view-audit">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">OS <span class="y-acc">Audit</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge warn">decision metadata</span> <button class="btn-secondary" id="refreshAuditBtn">↻ Refresh</button></div>
+      </div>
+      <div id="auditLogContainer" class="audit-log-container"></div>
+    </section>
+
+    <!-- ---- 8. Settings View ---- -->
+    <section class="view" id="view-settings">
+      <div class="y-header">
+        <div>
+          
+          <h2 class="y-title">System <span class="y-acc">Settings</span></h2>
+        </div>
+        <div class="y-badges"><span class="y-badge violet">config</span><button class="btn-secondary" id="refreshSettingsBtn">&#8635; Refresh</button></div>
+      </div>
+      <div id="settingsContainer" class="settings-container"></div>
+    </section>
+
+    <!-- ---- 12. Legacy Workspace View (Work Graph + Virtual Office tabs) ---- -->
+    <section class="view" id="view-workspace">
+      <div id="workspaceHeader">
+        <div>
+          <div id="wsName">Project Workspace</div>
+          <div class="ws-chips" id="wsChips"></div>
+        </div>
+        <div class="ws-controls">
+          <div class="ws-view-switcher">
+            <button class="ws-tab active" data-tab="graph">📊 Work Graph</button>
+            <button class="ws-tab" data-tab="office">🏢 Virtual Office</button>
+            <button class="ws-tab" data-tab="deliverables">📦 Deliverables</button>
+          </div>
+          <button class="btn-danger" id="stopTaskBtn" title="Emergency Stop">⏹ Stop</button>
+        </div>
+      </div>
+      <div id="workspaceBody">
+        <div id="canvasWrap">
+          <div id="workGraphContainer" class="workspace-tab-view active"></div>
+          <div id="virtualOfficeContainer" class="workspace-tab-view" style="display:none;"></div>
+          <div id="deliverablesContainer" class="workspace-tab-view" style="display:none;">
+            <div class="deliv-header">Generated Files & Verified Deliverables</div>
+            <div id="deliverablesList"></div>
+          </div>
+          <div id="pmBar">
+            <div id="pmBarInner">
+              <input id="pmInput" type="text" placeholder="Instruct the Lifetime Project Manager for this workspace..." />
+              <button id="pmSendBtn">↑</button>
+            </div>
+          </div>
+          <div id="terminalDrawer">
+            <div id="terminalHandle">
+              <div class="th-left"><span class="caret">▲</span><span>Activity & Decision Log</span></div>
+              <button id="popOutBtn">pop out</button>
+            </div>
+            <div id="terminalBody"></div>
+          </div>
+        </div>
+        <aside id="overviewPanel">
+          <div class="ov-section">
+            <div class="ov-title">LIFETIME PROJECT TEAM</div>
+            <div id="workerRows"></div>
+          </div>
+          <div class="ov-section" style="flex:1;border-bottom:none;">
+            <div class="ov-title" id="detailTitle">INSPECTOR & ARTIFACTS</div>
+            <div id="detailPanel"><div class="placeholder">Select a specialist node or deliverable to view details.</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+</main>
+
+  
+
+</div>
+
+<div id="yStatusbar"><span class="ys-scene" id="ysScene">HOME</span><span id="ysCount"></span><span class="ys-cmd" id="ysCmd">Personal AI workspace</span></div>
+
+<!-- ================= New Project Modal ================= -->
+<div class="modal-overlay" id="newProjectModal">
+  <div class="modal-box">
+    <h3>Create Project Workspace</h3>
+    <div class="sub">A Lifetime PM will be assigned to coordinate your persistent team.</div>
+    <label>Project Name</label>
+    <input type="text" id="projectNameInput" placeholder="e.g. Sales Dataset Analysis & Automation" />
+    <label>Select Team Members</label>
+    <div id="modalWorkerCheckboxes"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="cancelProjectBtn">Cancel</button>
+      <button class="btn-primary" id="createProjectBtn">Create Workspace</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= Permission Gate Approval Modal ================= -->
+<div class="modal-overlay" id="approvalModal" style="display:none;">
+  <div class="modal-box approval-box">
+    <div class="approval-header">
+      <span class="approval-icon">🛡️</span>
+      <h3>Action Approval Required</h3>
+    </div>
+    <div class="approval-level" id="approvalLevelBadge">Permission Level 2 (Ask)</div>
+    <p id="approvalWorkerText">Worker requesting permission to execute tool:</p>
+    <div class="approval-details" id="approvalDetails"></div>
+    <div class="modal-actions">
+      <button class="btn-danger" id="rejectApprovalBtn">Deny</button>
+      <button class="btn-primary" id="confirmApprovalBtn">Approve Action</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js?v=0.41.0"></script>
+<script src="js/work_graph.js?v=0.41.0"></script>
+<script src="js/virtual_office.js?v=0.41.0"></script>
+<script src="js/chat.js?v=0.41.0"></script>
+<script src="js/workspace.js?v=0.41.0"></script>
+<script src="js/views.js?v=0.41.0"></script>
+<script src="js/tools.js?v=0.41.1"></script>
+<script src="js/dashboard.js?v=0.41.0"></script>
+    <script src="js/vault.js?v=0.41.0"></script>
+<script src="js/workers.js?v=0.41.0"></script>
+<script src="js/app.js?v=0.41.0"></script>
+<script src="js/studio.js?v=0.41.0"></script><script src="vendor/html2canvas.min.js"></script><script src="js/pet-state.js"></script><script src="js/pet-awareness.js"></script><script src="js/pet-wardrobe.js"></script><script src="js/pet.js"></script><script src="js/pet-chat.js"></script>
+
+<!-- Researcher live browser view -->
+<div id="browserModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box browser-modal">
+    <div class="browser-head">
+      <span class="browser-title">🔍 Researcher · Live Browser</span>
+      <button class="icon-btn" id="browserClose">✕</button>
+    </div>
+    <div class="browser-search">
+      <input id="browserQuery" placeholder="Search the web (real Bing / Brave)..." />
+      <button class="btn-primary" id="browserGo">Search</button>
+    </div>
+    <div class="browser-status" id="browserStatus">Type a query to watch the researcher browse.</div>
+    <div class="browser-results" id="browserResults"></div>
+  </div>
+</div>
+
+  <script src="/vendor/pdf.min.js"></script>
+  <script src="/vendor/pdf-lib.min.js"></script>
+
+  <div id="pdfFsOverlay" class="hidden">
+    <div class="pdf-fs-bar">
+      <span id="pdfFsName">PDF Fullscreen</span>
+      <span class="pdf-fs-zoom">
+        <button class="fs-zoom-btn" id="pdfFsZoomOut" title="Zoom out">&#8722;</button>
+        <span id="pdfFsZoomVal">140%</span>
+        <button class="fs-zoom-btn" id="pdfFsZoomIn" title="Zoom in">&#43;</button>
+      </span>
+      <span class="pdf-fs-spacer"></span>
+      <span id="pdfFsStatus" class="muted"></span>
+      <button class="btn-primary btn-sm" id="pdfFsSave">&#128190; Save Edits</button>
+      <button class="btn-secondary btn-sm" id="pdfFsExport">&#11015; Export</button>
+      <button class="btn-danger btn-sm" id="pdfFsClose" title="Exit fullscreen">&#10005; Exit</button>
+    </div>
+    <div id="pdfFsScroll"><div id="pdfFsPages" class="pdf-pages"></div></div>
+  </div>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-attach" viewBox="0 0 24 24"><path d="m8 12 7-7a4 4 0 0 1 6 6L10 22a6 6 0 0 1-8-8L13 3m-8 14 10-10a1.5 1.5 0 0 1 2 2L7 19"/></symbol>
+<symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M3.34 7l17.32 10M3.34 17 20.66 7M9 4l3 3 3-3M9 20l3-3 3 3M3.6 10.6 7.7 9.5 6.6 5.4m10.8 13.2-1.1-4.1 4.1-1.1M6.6 18.6l1.1-4.1-4.1-1.1M20.4 10.6l-4.1-1.1 1.1-4.1"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 9.5 12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22v-7h6v7"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88"/></symbol>
+  <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 3l1.9 5.7L19.7 10.6l-5.8 1.9L12 18.2l-1.9-5.7L4.3 10.6l5.8-1.9z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="12" y1="18" x2="12" y2="18.01"/><line x1="16" y1="18" x2="16" y2="18.01"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+  <symbol id="i-scroll" viewBox="0 0 24 24"><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.53a2 2 0 0 1-.47 1.32L4.2 17.53A3.4 3.4 0 0 0 6.79 22h10.42a3.4 3.4 0 0 0 2.59-4.47l-5.33-6.68a2 2 0 0 1-.47-1.32V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><line x1="5" y1="15" x2="19" y2="15"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="16" rx="2"/><circle cx="7" cy="11" r="2"/><path d="M4 16.5a3 3 0 0 1 6 0"/><line x1="20" y1="10" x2="22" y2="10"/><line x1="20" y1="14" x2="22" y2="14"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+</svg>
+
+<dialog id="commandDialog" aria-labelledby="commandTitle"><div class="command-head"><svg class="ico-svg" aria-hidden="true"><use href="#i-search"/></svg><label id="commandTitle" class="sr-only" for="commandInput">Find a page or recent conversation</label><input id="commandInput" placeholder="Find a page or conversation…" autocomplete="off"/><button id="commandClose" class="btn-ghost">Esc</button></div><div id="commandResults" aria-label="Search results"></div><div class="command-foot">Type to filter <span>↑ ↓ to navigate · Enter to open</span></div></dialog>
+
+<script>
+(function () {
+  var sp = document.getElementById('bootSplash');
+  if (!sp) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var done = false;
+  function finish() {
+    if (done) return; done = true;
+    sp.classList.add('boot-out');
+    setTimeout(function () { if (sp.parentNode) sp.parentNode.removeChild(sp); }, reduce ? 260 : 620);
+  }
+  sp.addEventListener('click', finish);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') finish(); });
+  setTimeout(finish, reduce ? 1500 : 3000);
+  window.addEventListener('load', function () { setTimeout(finish, reduce ? 900 : 2450); });
+  setTimeout(finish, 3400);
+})();
+</script>
+</body>
+</html>
