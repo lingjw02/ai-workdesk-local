@@ -76,7 +76,7 @@
 
 ### 1. 克隆代码库
 ```bash
-git clone https://github.com/GGJustME/ai-workdesk-local.git
+git clone https://github.com/lingjw02/ai-workdesk-local.git
 cd ai-workdesk-local
 ```
 
@@ -335,7 +335,7 @@ AI WorkDesk 深度支持本地离线模型。你只需安装并启动 Ollama，�
 ## 🤝 参与贡献
 
 欢迎提交 Issue 与 Pull Request 共同完善 AI WorkDesk OS！
-- 发现 Bug 或有新功能想法？欢迎提交 [GitHub Issues](https://github.com/GGJustME/ai-workdesk-local/issues)。
+- 发现 Bug 或有新功能想法？欢迎提交 [GitHub Issues](https://github.com/lingjw02/ai-workdesk-local/issues)。
 - 想贡献好玩的员工 Skill？欢迎在社区分享你的 `SKILL.md` 预设。
 
 ---

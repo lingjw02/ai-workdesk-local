@@ -76,7 +76,7 @@ It is an interactive desktop workbench equipped with a **visual Office Floor**, 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/GGJustME/ai-workdesk-local.git
+git clone https://github.com/lingjw02/ai-workdesk-local.git
 cd ai-workdesk-local
 ```
 
